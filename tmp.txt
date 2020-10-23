@@ -1,0 +1,89 @@
+objectif : stockage et recherche optimisee de l'information
+
+
+TAILLE DE LA ZONE : 1024 * 1024 OCTET
+taille max d'une alloc : 1024 octet
+taille min d'une alloc : 16 octet
+differentes tailles possibles avec le padding : 64
+
+tableau des tailles :
+	16  	||	32  	||	48  	||	..  	||	1024	||
+	&1
+	&2
+	&3
+
+pour chaque taille d'allocation :
+	
+	on a une paire : dispo / utilise
+		dispo est une liste chainee:
+			{
+				- index dans le tableau 4
+				- adresse dans la zone memoire 8
+				- element suivant 4
+			}
+		utilisee est un tableau 
+			{
+				adresse dans la zone memoire 8
+				adresse dans la liste chainee 4
+			}
+		lorsque l'on cree la zone : 
+			- on prepare la liste chainee d'un certain nombre d'elements
+		lorsque l'on recoit une demande d'allocation :
+			- on recupere le premier maillon de la liste chainee
+			- on place la tete de liste sur l'element suivant
+			- on sauvegarde dans le tableau a l'index indique l'adresse dans la zone memoire
+			- on remplit le header de l'alloc dans la zone memoire.
+		lorsque l'on recoit une demande de free :
+			- on lit le header de l'allocation
+			- on verifie a l'index du tableau si ca confirme
+			- on sauvegarde dans la liste chainee des dispos les infos
+			- on place la tete de liste sur le maillon.
+
+
+		problemes actuels :
+			- lorsque on la liste dispos est vide. solution : casser des plus grosses zones
+			- defragmentation : reunir des plus petites zones (solution possible, cf partie "defrag" )
+			- non scalable ( demande de reserver un gros espace memoire pour le cas ou il n'y a que des petites alloc ) ( solution possible, au cout du check d'un index sur le tableau )
+
+			- estimation de l'espace utilise : 
+				pour chaque allocation :
+					- une entree dans dispo : 16 ( 24 si scalable )
+					- une entree dans utilise : 16
+					- un header dans la zone : 8
+					tot : 40 octets. (48 si scalable )
+
+		defrag :
+			lorsque il y a une requete sur une taille, et que elle n'est pas dispo, et qu'aucune sup n'est dispo pour un cassage, regarder les tailles inferieures.
+			de la plus petite taille a la plus grande taille :
+				on cree un arbre binaire trie a partir de la liste des dispos, puis on s'en sert pour refusionner en tailles plus grandes et on les ajoutes dans les dispos des tailles correspondantes.
+
+			casser une grande zone :
+				la retirer de la tete de liste
+				creer dans la liste des dispos les zones ainsi debloquees.
+
+			scalabilite :
+				
+			
+
+		header : 
+			{
+				taille de l'alloc : 6b (64 tailles possibles )
+				type de zone : 1b (tiny ou small)
+				index dans le tableau : 4
+				numero de la zone : 2 
+			}
+			tot : 8 octet ( 1 de padding )
+
+		complexite en temps :
+			alloc : constant
+			free : constant ( peut etre O(nb_zones), a voir)
+			defrag : 64 * nb_dispos * log(nb_dispos) de temps en temps
+
+
+
+
+UPDATE:
+	un seul tableau pour toutes les tailles.
+	on peut scale le tableau en contigu ( a verifier ?)
+	la defrag : tout faire d'un coup
+	la defrag genere des trous, les compter et laisser la possibilite de tout reorganiser ( cout : 3n )

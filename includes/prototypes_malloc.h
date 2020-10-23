@@ -13,7 +13,7 @@ t_alloc_header	*get_alloc_header(void* alloc, t_zone *zone);
 void			*get_spot(size_t size_to_find);
 int				main(int ac, char **av);
 int8_t			malloc_exit(void);
-int8_t			malloc_init(void);
+// int8_t			malloc_init(void);
 int8_t			mem_index_add(t_alloc_header *availble_alloc);
 uint8_t			mem_index_del(t_alloc_header *unavailble_alloc);
 t_alloc_header	*mem_index_get(size_t size);
@@ -32,5 +32,7 @@ void			test_write(void *mem, size_t size);
 int8_t			zone_create(t_zone **zone, size_t zone_size);
 void			zone_header_init(t_zone_header *header);
 int8_t			zone_liberate_all(t_zone *zone, size_t zone_size);
+
+size_t			malloc_good_size(size_t size);
 
 #endif

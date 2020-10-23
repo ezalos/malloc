@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   malloc_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkirszba <rkirszba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arobion <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 17:00:46 by ezalos            #+#    #+#             */
-/*   Updated: 2020/10/23 15:23:05 by arobion          ###   ########.fr       */
+/*   Created: 2020/10/22 16:41:09 by arobion           #+#    #+#             */
+/*   Updated: 2020/10/22 17:00:24 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
-#include <stdio.h>
 
-int		main()
+size_t		malloc_good_size(size_t size)
 {
-	char *test;	
-	int tot = 0;
-	int i;
-	while (tot < 1000000)
-	{
-
-		if(!(test = our_malloc(12)))
-			return (0);
-		i = 0;
-		while (i < 10)
-			test[i++]= 'X';
-		test[i] = '\n';
-		test[i + 1] = '\0';
-// 		dprintf(1, "%s", test);
-		tot++;
-	}
+	return ((((size - 1) >> 4) << 4) + 16);
 }

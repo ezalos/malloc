@@ -6,7 +6,7 @@
 /*   By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:15:02 by ldevelle          #+#    #+#             */
-/*   Updated: 2020/10/22 14:42:23 by ldevelle         ###   ########.fr       */
+/*   Updated: 2020/10/22 18:55:55 by arobion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define ZONE_SIZE	4096
+# define ZONE_SIZE 4096
+# define SIZE_STATIC 4096
 
 # define ERROR		-1
 # define FAILURE	-1
@@ -35,6 +36,8 @@
 # define ZONE_LARGE	3
 
 # define PRINT_LINE_SIZE	32
+
+# define TINY_ZONE_SIZE 2 * 1024 * 1024
 
 # define ABS(x)		((x < 0) ? -x : x)
 
@@ -66,5 +69,6 @@ typedef	struct				s_malloc
 }							t_malloc;
 
 # include "prototypes_malloc.h"
+# include "ft_malloc_tab.h"
 
 #endif
