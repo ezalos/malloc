@@ -6,7 +6,7 @@
 #    By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/20 16:46:57 by ezalos            #+#    #+#              #
-#    Updated: 2020/11/16 20:16:06 by ezalos           ###   ########.fr        #
+#    Updated: 2020/11/16 20:24:56 by ezalos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,6 @@ SO_FLAG_	= -shared
 # HEAD_DIR	= includes/
 # OBJS_DIR	= objs/
 # OBJS_RBT_DIR	= objs/rbt/
-$(shell mkdir -p $(OBJS_DIR))
-$(shell mkdir -p $(OBJS_RBT_DIR))
-
 # INCS		= $(wildcard $(HEAD_DIR)*.h)
 # SRCS		= $(wildcard $(SRCS_DIR)*.c)
 # SRCS		+= $(wildcard $(SRCS_DIR)rbt/*.c)
