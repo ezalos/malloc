@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 16:00:54 by ezalos            #+#    #+#             */
-/*   Updated: 2020/11/16 16:01:03 by ezalos           ###   ########.fr       */
+/*   Created: 2020/11/16 20:27:34 by ezalos            #+#    #+#             */
+/*   Updated: 2020/11/16 20:27:35 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void			*our_malloc(size_t size);
 void			*our_realloc(void *ptr, size_t size);
 void			padding_after(t_rbt *node);
 void			padding_before(t_rbt *node, size_t space);
-void			print_alloc(t_alloc_header *alloc);
 void			print_alloc_header(t_alloc_header *alloc, size_t *total_octet);
 void			print_alloc_memory(t_alloc_header *alloc, size_t *total_octet,
 				size_t alloc_nb);
