@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zone_create.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkirszba <rkirszba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 17:59:00 by ezalos            #+#    #+#             */
-/*   Updated: 2020/11/10 17:10:26 by rkirszba         ###   ########.fr       */
+/*   Updated: 2020/11/16 20:12:24 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,16 @@ t_alloc_header	*zone_create_large(size_t size)
 	uint8_t			flags;
 	size_t			zone_size;
 
-	zone_size = secure_align_size(size + sizeof(t_alloc_header)
-				+ sizeof(t_zone_header));
+	size = size + sizeof(t_alloc_header) + sizeof(t_zone_header);
+	zone_size = (size - 1) + getpagesize()
+			- ((size - 1) % getpagesize());
 	zone = mmap(NULL, zone_size,
 				PROT_READ | PROT_WRITE,
 				MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 	if (zone == MAP_FAILED)
 	{
 		write(1, "Error: can't do mmap of large size \n", 36);
-		print_dec((size_t)size);
+		print_dec((size_t)zone_size);
 		write(1, "\n", 1);
 		return (NULL);
 	}

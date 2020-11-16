@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_defrag.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/16 20:20:31 by ezalos            #+#    #+#             */
+/*   Updated: 2020/11/16 20:20:32 by ezalos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "head.h"
 
 int		main(int ac, char **av)
@@ -58,7 +70,7 @@ int		main(int ac, char **av)
 	printf("\nAfter free of the third pointer\n");
 	show_alloc_mem();
 
-	
+
 
 	return (0);
 }
