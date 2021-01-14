@@ -6,7 +6,7 @@
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 17:59:00 by ezalos            #+#    #+#             */
-/*   Updated: 2020/11/16 20:12:24 by ezalos           ###   ########.fr       */
+/*   Updated: 2021/01/14 12:16:04 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int8_t			zone_create(t_mem_type *mem_type)
 				MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 	if (zone == MAP_FAILED)
 	{
-		write(1, "Error: can't do mmap of size \n", 36);
+		write(1, "Error: can't do mmap of size \n", 31);
 		print_dec((size_t)mem_type->size);
 		write(1, "\n", 1);
 		return (ERROR);
