@@ -6,7 +6,7 @@
 #    By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/20 16:46:57 by ezalos            #+#    #+#              #
-#    Updated: 2020/11/16 20:24:56 by ezalos           ###   ########.fr        #
+#    Updated: 2021/01/14 13:42:33 by ezalos           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,9 @@ SRCS_NAMES  = tree_available.c\
               official.c\
               tree_unavailable.c\
               show_alloc_mem.c
+
+#			  main_colors.c
+
 SRCS_RBT_DIR    = rbt/
 SRCS_RBT_NAMES  = tree_inorder.c\
                   tree_insert.c\

@@ -1,7 +1,9 @@
 #!/bin/sh
 
-export LD_PRELOAD="./libft_malloc.so"
+export LD_LIBRARY_PATH="." 
 
-export HUGETLB_MORECORE=yes
+export LD_PRELOAD="/home/ezalos/42/malloc/libft_malloc.so"
+
+#export HUGETLB_MORECORE=yes
 
 $@

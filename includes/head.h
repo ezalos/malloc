@@ -6,7 +6,7 @@
 /*   By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:15:02 by ldevelle          #+#    #+#             */
-/*   Updated: 2020/11/16 20:17:56 by ezalos           ###   ########.fr       */
+/*   Updated: 2021/01/14 13:35:28 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 **	PRINTING
 */
 
-# define PRINT_HEX_DEMO				FALSE
+# define PRINT_HEX_DEMO				TRUE
 # define PRINT_INVALID_FREE			FALSE
 /*
 **	# define PRINT_LINE_SIZE			(32 * 6)
